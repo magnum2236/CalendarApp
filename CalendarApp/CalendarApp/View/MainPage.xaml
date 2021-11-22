@@ -4,6 +4,61 @@
              xmlns:syncfusion="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
              x:Class="CalendarApp.View.MainPage">
     <StackLayout>
-        <syncfusion:SfCalendar x:Name="scheduler" />
+        <syncfusion:SfCalendar x:Name="scheduler"/>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Weather Condition on Philippines As of: " TextColor="Black" Margin="15,5,2,15"/>
+            <Label x:Name="ActualTime" FontSize="14" FontAttributes="Bold" TextColor="Black" Margin="0,5,0,15"/>
+        </StackLayout>
+        
+        <ListView x:Name="WeatherTodayListView" HasUnevenRows="True" ItemTapped="clearListViewBackground" Margin="15,0,0,0">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="8,0,8,0">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Weather Today is: " FontSize="14" TextColor="Black"/>
+                                <Label Text="{Binding Description}" TextColor="#000" FontSize="14" FontAttributes="Bold"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Temperature is: " FontSize="14" TextColor="Black"/>
+                                <Label Text="{Binding Temperature}" TextColor="#000" FontSize="14" FontAttributes="Bold"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Feels Like : " FontSize="14" TextColor="Black"/>
+                                <Label Text="{Binding Feels_like}" TextColor="#000" FontSize="14" FontAttributes="Bold"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Minimum Temp : " FontSize="14" TextColor="Black"/>
+                                <Label Text="{Binding Temperature_Min}" TextColor="#000" FontSize="14" FontAttributes="Bold"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Maximum Temp : " FontSize="14" TextColor="Black"/>
+                                <Label Text="{Binding Temperature_Max}" TextColor="#000" FontSize="14" FontAttributes="Bold"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Pressure : " FontSize="14" TextColor="Black"/>
+                                <Label Text="{Binding Pressure}" TextColor="#000" FontSize="14" FontAttributes="Bold"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Humidity : " FontSize="14" TextColor="Black"/>
+                                <Label Text="{Binding Humidity}" TextColor="#000" FontSize="14" FontAttributes="Bold"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Visibility : " FontSize="14" TextColor="Black"/>
+                                <Label Text="{Binding Visibilty}" TextColor="#000" FontSize="14" FontAttributes="Bold"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Wind Speed : " FontSize="14" TextColor="Black"/>
+                                <Label Text="{Binding Wind_Speed}" TextColor="#000" FontSize="14" FontAttributes="Bold"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Degrees : " FontSize="14" TextColor="Black"/>
+                                <Label Text="{Binding Wind_Degree}" TextColor="#000" FontSize="14" FontAttributes="Bold"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
 </ContentPage>
