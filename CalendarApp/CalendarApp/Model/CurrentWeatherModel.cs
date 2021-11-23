@@ -12,6 +12,9 @@ namespace CalendarApp.Model
         public string Description { get; set; }
         public string Temperature { get; set; }
         public string Feels_like { get; set; }
+        
+        [JsonProperty("icon")]
+        public string Thumb { get; set; }
         public string Temperature_Min { get; set; }
         public string Temperature_Max { get; set; }
         public string Pressure { get; set; }
