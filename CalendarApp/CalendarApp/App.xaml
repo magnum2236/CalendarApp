@@ -3,6 +3,31 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CalendarApp.App">
     <Application.Resources>
-
+        <ResourceDictionary x:Name="StyleDictionary">
+            <Style x:Key="WeatherCondLabel" TargetType="Label">
+                <Setter Property="Margin" Value="15,5,2,15"/>
+                <Setter Property="TextColor" Value="Black"/>
+            </Style>
+            <Style x:Key="ActualLabel" TargetType="Label">
+                <Setter Property="Margin" Value="0,5,0,15"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontSize" Value="14"/>
+            </Style>
+            <Style x:Key="ListViewDesign" TargetType="ListView">
+                <Setter Property="Margin" Value="15,0,0,0"/>
+            </Style>
+            <Style x:Key="MainStackLayout" TargetType="StackLayout">
+                <Setter Property="Padding"  Value="8,0,8,0"/>
+            </Style>
+            <Style x:Key="DataLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="TextColor" Value="Black"/>
+            </Style>
+            <Style x:Key="DataValueLabel" TargetType="Label">
+                 <Setter Property="FontSize" Value="14"/>
+                 <Setter Property="TextColor" Value="Black"/>
+                  <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
