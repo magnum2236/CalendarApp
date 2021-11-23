@@ -6,54 +6,54 @@
     <StackLayout>
         <syncfusion:SfCalendar x:Name="scheduler"/>
         <StackLayout Orientation="Horizontal">
-            <Label Text="Weather Condition on Philippines As of: " TextColor="Black" Margin="15,5,2,15"/>
-            <Label x:Name="ActualTime" FontSize="14" FontAttributes="Bold" TextColor="Black" Margin="0,5,0,15"/>
+            <Label Text="Weather Condition on Philippines As of: " Style="{StaticResource WeatherCondLabel}"/>
+            <Label x:Name="ActualTime" Style="{StaticResource ActualLabel}"/>
         </StackLayout>
-        
-        <ListView x:Name="WeatherTodayListView" HasUnevenRows="True" ItemTapped="clearListViewBackground" Margin="15,0,0,0">
+
+        <ListView x:Name="WeatherTodayListView" HasUnevenRows="True" ItemTapped="clearListViewBackground" Style="{StaticResource ListViewDesign}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Padding="8,0,8,0">
+                        <StackLayout Style="{StaticResource MainStackLayout}">
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="Weather Today is: " FontSize="14" TextColor="Black"/>
+                                <Label Text="Weather Today is: " Style="{StaticResource DataLabel}"/>
                                 <Label Text="{Binding Description}" TextColor="#000" FontSize="14" FontAttributes="Bold"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="Temperature is: " FontSize="14" TextColor="Black"/>
+                                <Label Text="Temperature is: " Style="{StaticResource DataLabel}"/>
                                 <Label Text="{Binding Temperature}" TextColor="#000" FontSize="14" FontAttributes="Bold"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="Feels Like : " FontSize="14" TextColor="Black"/>
+                                <Label Text="Feels Like : " Style="{StaticResource DataLabel}"/>
                                 <Label Text="{Binding Feels_like}" TextColor="#000" FontSize="14" FontAttributes="Bold"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="Minimum Temp : " FontSize="14" TextColor="Black"/>
+                                <Label Text="Minimum Temp : " Style="{StaticResource DataLabel}"/>
                                 <Label Text="{Binding Temperature_Min}" TextColor="#000" FontSize="14" FontAttributes="Bold"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="Maximum Temp : " FontSize="14" TextColor="Black"/>
-                                <Label Text="{Binding Temperature_Max}" TextColor="#000" FontSize="14" FontAttributes="Bold"/>
+                                <Label Text="Maximum Temp : " Style="{StaticResource DataLabel}"/>
+                                <Label Text="{Binding Temperature_Max}" Style="{StaticResource DataValueLabel}"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="Pressure : " FontSize="14" TextColor="Black"/>
-                                <Label Text="{Binding Pressure}" TextColor="#000" FontSize="14" FontAttributes="Bold"/>
+                                <Label Text="Pressure : " Style="{StaticResource DataLabel}"/>
+                                <Label Text="{Binding Pressure}" Style="{StaticResource DataValueLabel}"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="Humidity : " FontSize="14" TextColor="Black"/>
-                                <Label Text="{Binding Humidity}" TextColor="#000" FontSize="14" FontAttributes="Bold"/>
+                                <Label Text="Humidity : " Style="{StaticResource DataLabel}"/>
+                                <Label Text="{Binding Humidity}" Style="{StaticResource DataValueLabel}"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="Visibility : " FontSize="14" TextColor="Black"/>
-                                <Label Text="{Binding Visibilty}" TextColor="#000" FontSize="14" FontAttributes="Bold"/>
+                                <Label Text="Visibility : " Style="{StaticResource DataLabel}"/>
+                                <Label Text="{Binding Visibilty}" Style="{StaticResource DataValueLabel}"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="Wind Speed : " FontSize="14" TextColor="Black"/>
-                                <Label Text="{Binding Wind_Speed}" TextColor="#000" FontSize="14" FontAttributes="Bold"/>
+                                <Label Text="Wind Speed : " Style="{StaticResource DataLabel}"/>
+                                <Label Text="{Binding Wind_Speed}" Style="{StaticResource DataValueLabel}"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="Degrees : " FontSize="14" TextColor="Black"/>
-                                <Label Text="{Binding Wind_Degree}" TextColor="#000" FontSize="14" FontAttributes="Bold"/>
+                                <Label Text="Degrees : " Style="{StaticResource DataLabel}"/>
+                                <Label Text="{Binding Wind_Degree}" Style="{StaticResource DataValueLabel}"/>
                             </StackLayout>
                         </StackLayout>
                     </ViewCell>
