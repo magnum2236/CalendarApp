@@ -5,13 +5,21 @@ using System.Text;
 namespace CalendarApp.Model
 {
     public class TempWeatherModel
-    {
-        public string DayDate { get; set; }
-        public string Description { get; set; }
+    {   
         public string Temp { get; set; }
-        public string Temp_Min { get; set; }
-        public string Temp_Max { get; set; }
-        public string Feels_Like { get; set; }
-        public string Icon { get; set; }
+        public string Feels_like { get; set; }
+        public string Temp_min { get; set; }
+        public string Temp_max { get; set; }
+        public string Pressure { get; set; }
+        public int Sea_level { get; set; }
+        public int Grnd_level { get; set; }
+        public int Humidity { get; set; }
+        public double Temp_kf { get; set; }
+        
+    }
+
+    public class WeatherTempModel
+    {
+        public List<TempWeatherModel> tempWeathers { get; set; }
     }
 }
