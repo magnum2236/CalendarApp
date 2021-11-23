@@ -1,4 +1,5 @@
 ﻿using CalendarApp.Model;
+using CalendarApp.ViewModel;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -18,10 +19,13 @@ namespace CalendarApp.View
     public partial class MainPage : ContentPage
     {
         public ObservableCollection<CurrentWeatherModel> weatherModels = new ObservableCollection<CurrentWeatherModel>();
+        
+        public ObservableCollection<WeatherSummaryModel> summaryModels = new ObservableCollection<WeatherSummaryModel>();
         public MainPage()
         {
             InitializeComponent();
             GetCityCurrentWeatherData();
+            GetForecastData();
         }
 
         public async void GetCityCurrentWeatherData()
@@ -32,7 +36,7 @@ namespace CalendarApp.View
             var jsn = JObject.Parse(response);
             var description = jsn["weather"][0]["description"].ToString();
             var imageIcon = jsn["weather"][0]["icon"].ToString();
-            var imageparsed = imageIcon + ".png";
+            var imageparsed = "http://openweathermap.org/img/w/" + imageIcon + ".png";
             var temperature = jsn["main"]["temp"];
             var actual_feel = jsn["main"]["feels_like"];
             var min_temp = jsn["main"]["temp_min"];
@@ -131,10 +135,21 @@ namespace CalendarApp.View
             ActualTime.Text = phTime;
         }
 
-        public string GetForecastData()
+        public async void GetForecastData()
         {
-            var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?q=New%20York&appid=12c85f36e6495266648068b2ff1fbde3&cnt=30";
-            return forecastURL;
+            var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?q=Manila&appid=12c85f36e6495266648068b2ff1fbde3&cnt=30";
+            var client = new HttpClient();
+            var response = await client.GetStringAsync(forecastURL);
+            var jsn = JObject.Parse(response);
+            
+            var temperature = jsn["list"][0]["main"].ToString();
+            var weather = jsn["list"][0]["weather"][0].ToString();
+            var clouds = jsn["list"][0]["clouds"].ToString();
+            var wind = jsn["list"][0]["wind"].ToString();
+            var json1 = JsonConvert.DeserializeObject<List<WeatherTempModel>>(temperature);
+            var json2 = JsonConvert.DeserializeObject<WeatherModel>(weather);
+            var json3 = JsonConvert.DeserializeObject<CloudModel>(clouds);
+            var json4 = JsonConvert.DeserializeObject<WindModel>(wind);
         }
 
         private void clearListViewBackground(object sender, ItemTappedEventArgs e)
