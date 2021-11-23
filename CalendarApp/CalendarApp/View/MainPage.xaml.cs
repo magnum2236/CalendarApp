@@ -126,7 +126,8 @@ namespace CalendarApp.View
                 Wind_Speed = wind_speed,
                 Wind_Degree = wind_deg,
                 SunRise = sunrise_time,
-                SunSet = sunset_time
+                SunSet = sunset_time,
+                Thumb = imageparsed
             };
 
             weatherModels.Add(WeatherDataToday);
@@ -146,10 +147,10 @@ namespace CalendarApp.View
             var weather = jsn["list"][0]["weather"][0].ToString();
             var clouds = jsn["list"][0]["clouds"].ToString();
             var wind = jsn["list"][0]["wind"].ToString();
-            var json1 = JsonConvert.DeserializeObject<List<WeatherTempModel>>(temperature);
+            /*var json1 = JsonConvert.DeserializeObject<List<WeatherTempModel>>(temperature);
             var json2 = JsonConvert.DeserializeObject<WeatherModel>(weather);
             var json3 = JsonConvert.DeserializeObject<CloudModel>(clouds);
-            var json4 = JsonConvert.DeserializeObject<WindModel>(wind);
+            var json4 = JsonConvert.DeserializeObject<WindModel>(wind);*/
         }
 
         private void clearListViewBackground(object sender, ItemTappedEventArgs e)
